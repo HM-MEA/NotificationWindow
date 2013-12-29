@@ -1,10 +1,5 @@
 package mare.Nwindow;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -52,7 +47,7 @@ public class NotificationWindow {
 		this.showtime = showtime;
 	}
 	
-	public void showNotificationWindow() throws IOException{
+	public void showNotificationWindow(){
 		Rectangle2D sb = Screen.getPrimary().getVisualBounds();
 		
 		double X = 0;
@@ -74,24 +69,6 @@ public class NotificationWindow {
 		
 		nstage.setX(X);
 		nstage.setY(Y);
-		
-		File file = new File("log.txt");
-		if(!file.exists()){
-			file.createNewFile();
-			file.canWrite();
-		}
-		
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file,true)));
-		pw.println("Stagename:"+nstage.getTitle());
-		pw.println("Bounds_width:"+sb.getWidth());
-		pw.println("Bounds_Height:"+sb.getHeight());
-		pw.println("StageWidth:"+nstage.getScene().getRoot().prefWidth(0));
-		pw.println("StageHeight:"+nstage.getScene().getRoot().prefHeight(0));
-		pw.println("showplace:"+showplace);
-		pw.println("X:"+X+" Y:"+Y);
-		pw.println("showtime:"+showtime);
-		pw.println("");
-		pw.close();
 		
 		nstage.show();
 					
