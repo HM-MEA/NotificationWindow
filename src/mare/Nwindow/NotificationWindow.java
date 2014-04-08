@@ -1,4 +1,4 @@
-package mare.Nwindow;
+package mare.Nwindow;　　　　
 
 
 import javafx.animation.KeyFrame;
